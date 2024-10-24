@@ -35,7 +35,7 @@ if (!$event) {
 }
 
 $sql_participants = "
-    SELECT u.username, u.email
+    SELECT ep.username, ep.email
     FROM event_participant ep
     INNER JOIN users u ON ep.user_id = u.id
     WHERE ep.event_id = :event_id
