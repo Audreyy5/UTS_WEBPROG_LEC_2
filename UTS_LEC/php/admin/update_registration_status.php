@@ -19,10 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: dashboard_admin.php");
         exit();
     } catch (Exception $e) {
-        // In case of an error, return error message
         echo 'error: ' . $e->getMessage();
     }
 } else {
-    // If the request is not a POST request, return an error
     echo 'error: invalid request method';
 }

@@ -13,7 +13,6 @@ if (!isset($_GET['event_id'])) {
 $event_id = $_GET['event_id'];
 $user_id = $_SESSION['user_id'];
 
-// Delete the event registration for the current user
 $sql_delete = "DELETE FROM event_participant WHERE event_id = :event_id AND user_id = :user_id";
 $stmt_delete = $db->prepare($sql_delete);
 $stmt_delete->execute([
@@ -21,7 +20,6 @@ $stmt_delete->execute([
     'user_id' => $user_id
 ]);
 
-// Check if the deletion was successful
 if ($stmt_delete->rowCount() > 0) {
     echo "<script>
             alert('Event registration deleted successfully.');
